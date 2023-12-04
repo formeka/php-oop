@@ -8,10 +8,14 @@ class MaClass
     public string $prenom;
     public const PI = 3.14;
     public float|int $rayon;
+
     static string $varStatic = 'Je suis une variable statique';
 
-    // private string $_attributPrivate;
-    // private string $_nom = 'Michel PLIK';
+    protected string $varProtected = 'Je suis une variable protected';
+
+    private string $_attributPrivate;
+    
+    private string $_nom = 'Michel PLIK';
 
     public function __construct()
     {
@@ -41,25 +45,21 @@ class MaClass
         return 'Methode statique qui affiche une variable statique ' . self::$varStatic;
     }
 
-    public function __destruct()
+    public function getNom()
     {
-        echo 'Je suis une methode magique (__destruct) de la ' . __CLASS__  . '<br>';
+        return $this->_nom;
     }
+
+    public function setNom($nom)
+    {
+        $this->_nom = $nom;
+    }
+
+    // public function __destruct()
+    // {
+    //     echo 'Je suis une methode magique (__destruct) de la ' . __CLASS__  . '<br>';
+    // }
 }
 
-// $objClass = new MaClass();
-//echo 'Couleur : ' . $obj->couleur . '<br>';
-//echo 'Age: ' . $obj->age . '<br>';
-//echo 'Nom: ' . $obj->_nom;
 
-// $objClass->prenom = 'Bill';
-// echo $objClass->displayMethode('Coucou');
-
-// $objClass->rayon = 3.5;
-// echo $objClass->calculCercleAire() . 'cm2<br>';
-
-// echo $objClass->calculCercleAire2(3.5) . 'cm2';
-
-// echo MaClass::$varStatic;
-// echo MaClass::staticFunc();
 
