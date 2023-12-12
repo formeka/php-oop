@@ -5,6 +5,7 @@ class MaClass
     public string $attributPublic;
     public string $couleur = 'vert';
     public int $age = 54;
+    public string $nom;
     public string $prenom;
     public const PI = 3.14;
     public float|int $rayon;
@@ -13,9 +14,20 @@ class MaClass
     // private string $_attributPrivate;
     // private string $_nom = 'Michel PLIK';
 
-    public function __construct()
+    // public function __construct()
+    // {
+    //     echo 'Je suis une methode magique de la ' . __CLASS__  . '<br>';
+    // }
+
+    public function __construct($nom,$prenom)
     {
-        echo 'Je suis une methode magique de la ' . __CLASS__  . '<br>';
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+    }
+
+    public function affichePerson()
+    {
+        return $this->nom . ' ' . $this->prenom;
     }
 
     public function displayMethode($value): string
@@ -41,16 +53,16 @@ class MaClass
         return 'Methode statique qui affiche une variable statique ' . self::$varStatic;
     }
 
-    public function __destruct()
-    {
-        echo 'Je suis une methode magique (__destruct) de la ' . __CLASS__  . '<br>';
-    }
+    // public function __destruct()
+    // {
+    //     echo 'Je suis une methode magique (__destruct) de la ' . __CLASS__  . '<br>';
+    // }
 }
 
 // $objClass = new MaClass();
-//echo 'Couleur : ' . $obj->couleur . '<br>';
-//echo 'Age: ' . $obj->age . '<br>';
-//echo 'Nom: ' . $obj->_nom;
+//echo 'Couleur : ' . $objClass->couleur . '<br>';
+//echo 'Age: ' . $objClass->age . '<br>';
+// echo 'Nom: ' . $objClass->_nom;
 
 // $objClass->prenom = 'Bill';
 // echo $objClass->displayMethode('Coucou');
@@ -63,3 +75,5 @@ class MaClass
 // echo MaClass::$varStatic;
 // echo MaClass::staticFunc();
 
+$person = new MaClass('jon','doe');
+echo $person->affichePerson();
