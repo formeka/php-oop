@@ -11,16 +11,17 @@ class MaClass
 
     static string $varStatic = 'Je suis une variable statique';
 
-    protected string $varProtected = 'Je suis une variable protected';
+    protected string $varProtected;
+    //protected string $varProtected = 'Je suis une variable protected';
 
     private string $_attributPrivate;
     
     private string $_nom = 'Michel PLIK';
 
-    public function __construct()
-    {
-        echo 'Je suis une methode magique de la ' . __CLASS__  . '<br>';
-    }
+    // public function __construct()
+    // {
+    //     echo 'Je suis une methode magique de la ' . __CLASS__  . '<br>';
+    // }
 
     public function displayMethode($value): string
     {
